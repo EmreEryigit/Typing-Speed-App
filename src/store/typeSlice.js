@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import random from "random-words"
+
+
 const typeSlice = createSlice({
     name: "type",
     initialState: {
         words: random(10),
-        timeLeft : 5,
+        timeLeft : 60,
         score: 0,
         wordIndex : 0,
-        isPlaying: false
+        isPlaying: false,
+        wordCheck: [],
+        wordCount: 0
     },
     reducers: {
         setTimeLeft: (state, action) => {
@@ -15,9 +19,11 @@ const typeSlice = createSlice({
         },
         handleCorrect: (state, action) => {
             state.score += 1
+            state.wordCheck.push(action.payload)
         },
         handleWrong: (state, action) => {
             state.score -= 1
+            state.wordCheck.push(null)
         },
         reset: (state, action) => {
             state.score = 0
@@ -31,11 +37,23 @@ const typeSlice = createSlice({
         },
         startGame : (state, action) => {
             state.score = 0
-            state.words = random(10)
+            state.wordCheck = []
             state.wordIndex = 0
-            state.timeLeft = 5
+            state.timeLeft = 60
             state.isPlaying = true
+        },
+        stopGame : (state, action) => {
+            state.isPlaying = false
+       
+
+        },
+        incrementWordCount : (state, action) => {
+            state.wordCount += 1
+        },
+        refreshWords: (state, action) => {
+            state.words = [...state.words, ...random(10)]
         }
+
     }
 })
 export default typeSlice

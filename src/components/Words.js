@@ -4,11 +4,13 @@ import {useSelector} from 'react-redux';
 function Words() {
     const words = useSelector(state => state.type.words);
     const wordIndex = useSelector(state => state.type.wordIndex);
-  console.log(words)
+    const wordCheck = useSelector(state => state.type.wordCheck);
+  
+  
   return (
     <div>
       {words.map((word, index) => (
-        <div className={"d-inline-block mx-2 " + (wordIndex === index ? " bg-primary" : "")} key={index}>{word}</div>
+        <div className={"d-inline-block mx-2 " + (wordIndex === index ? " bg-primary " : " ")+ ( wordCheck[index] ? " text-success " : " text-danger ") + (index >= wordIndex ? "text-dark" : "")} key={index}>{word}</div>
       ))}
     </div>
   )
