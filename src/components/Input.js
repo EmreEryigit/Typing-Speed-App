@@ -51,9 +51,10 @@ function Input() {
  
    
   return (
-    <div>
-        <button className='btn btn-primary' onClick={startHandler}> Play</button>
-        <input type="text" onChange={handleChange} value={input} className='form-control' disabled={!isPlaying}/>
+    <div className=''>
+        
+        <input type="text" onChange={handleChange} id="text" value={input} className='form-control-lg my-3 shadow-lg' disabled={!isPlaying}/>
+        <button className='btn btn-primary d-block mx-auto' onClick={startHandler}> Play</button>
     </div>
   )
 }

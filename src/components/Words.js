@@ -8,7 +8,7 @@ function Words() {
   
   
   return (
-    <div>
+    <div className='card card-body'>
       {words.map((word, index) => (
         <div className={"d-inline-block mx-2 " + (wordIndex === index ? " bg-primary " : " ")+ ( wordCheck[index] ? " text-success " : " text-danger ") + (index >= wordIndex ? "text-dark" : "")} key={index}>{word}</div>
       ))}

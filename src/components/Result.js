@@ -10,7 +10,7 @@ function Result() {
 
 
   return (
-    <div>
+    <div className='card my-2 border shadow-lg' >
         <p>True Answers: {trueAnswerCount}</p>
         <p>Wrong Answers: {wrongAnswerCount}</p>
         <p>Accuracy: {percent}%</p>

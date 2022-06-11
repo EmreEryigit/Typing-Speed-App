@@ -6,7 +6,7 @@ const typeSlice = createSlice({
     name: "type",
     initialState: {
         words: random(10),
-        timeLeft : 60,
+        timeLeft : 15,
         score: 0,
         wordIndex : 0,
         isPlaying: false,
@@ -39,7 +39,7 @@ const typeSlice = createSlice({
             state.score = 0
             state.wordCheck = []
             state.wordIndex = 0
-            state.timeLeft = 60
+            state.timeLeft = 15
             state.isPlaying = true
         },
         stopGame : (state, action) => {
